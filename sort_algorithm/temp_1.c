@@ -41,18 +41,19 @@ void SelectionSort(int a[], int a_len) {
     int j;
     int min = 0;
     int min_index = 0;
+    int temp = 0;
 
     for (i=0; i<a_len; i++) {
         min = a[i];
         min_index = i;
         for (j=i; j<a_len; j++) {
-            if (min > a[j]) {
-                min = a[j];
+            if (a[min_index] > a[j]) {
                 min_index = j;
             }
         }
-        a[min_index] = a[i];
-        a[i] = min;
+        temp = a[i];
+        a[i] = a[min_index];
+        a[min_index] = temp;
     }
     return;
 }
